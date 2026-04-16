@@ -1,0 +1,210 @@
+/* ===== Partner Bento Grid ===== */
+.exact-partners {
+  background-color: var(--primary-blue-light);
+  overflow: hidden;
+}
+
+.exact-partners__header {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto 60px;
+}
+
+.exact-partners__badge {
+  display: inline-block;
+  padding: 6px 16px;
+  background-color: rgba(10, 102, 194, 0.1);
+  color: var(--primary-blue);
+  border-radius: 50px;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 16px;
+}
+
+.exact-partners__grid,
+.exact-partners__bento {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  margin-bottom: 80px;
+}
+
+.exact-partners__card {
+  position: relative;
+  background-color: var(--bg-white);
+  border: 1px solid rgba(0,0,0,0.05);
+  border-radius: 20px;
+  padding: 32px;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  flex-direction: column;
+}
+
+.exact-partners__card--wide {
+  grid-column: span 2;
+  flex-direction: row;
+  align-items: center;
+  gap: 24px;
+}
+
+.exact-partners__card--square {
+  grid-column: span 1;
+}
+
+.exact-partners__glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 150px;
+  height: 150px;
+  background-color: var(--brand-color);
+  opacity: 0;
+  border-radius: 50%;
+  filter: blur(60px);
+  transition: opacity 0.5s ease;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.exact-partners__card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px -10px rgba(0,0,0,0.1);
+  border-color: rgba(0,0,0,0.1);
+}
+
+.exact-partners__card:hover .exact-partners__glow {
+  opacity: 0.15;
+}
+
+.exact-partners__content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: inherit;
+  gap: inherit;
+  height: 100%;
+}
+
+.exact-partners__card--square .exact-partners__content {
+  flex-direction: column;
+  gap: 20px;
+}
+
+.exact-partners__logo-wrapper {
+  width: 64px;
+  height: 64px;
+  background-color: var(--brand-color);
+  color: white;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.exact-partners__card:hover .exact-partners__logo-wrapper {
+  transform: scale(1.1) rotate(5deg);
+}
+
+.exact-partners__info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.exact-partners__name {
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--text-dark);
+  margin-bottom: 6px;
+  letter-spacing: -0.01em;
+}
+
+.exact-partners__desc {
+  font-size: 15px;
+  color: var(--text-gray);
+  line-height: 1.5;
+  margin: 0;
+}
+
+.exact-partners__watermark {
+  position: absolute;
+  bottom: -20px;
+  right: -20px;
+  width: 120px;
+  height: 120px;
+  color: var(--brand-color);
+  opacity: 0.03;
+  z-index: 0;
+  pointer-events: none;
+  transition: all 0.5s ease;
+}
+
+.exact-partners__card:hover .exact-partners__watermark {
+  transform: scale(1.2) rotate(-10deg);
+  opacity: 0.08;
+}
+
+/* Ticker Animation */
+.exact-partners__ticker-wrap {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  background-color: white;
+  padding: 16px 0;
+  border-top: 1px solid var(--border-light);
+  border-bottom: 1px solid var(--border-light);
+  overflow: hidden;
+  display: flex;
+}
+
+.exact-partners__ticker {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  animation: ticker 25s linear infinite;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-gray);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.exact-partners__dot {
+  color: var(--primary-cyan);
+  margin: 0 40px;
+  font-size: 20px;
+}
+
+@keyframes ticker {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .exact-partners__bento {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .exact-partners__bento {
+    grid-template-columns: 1fr;
+  }
+  .exact-partners__card--wide {
+    grid-column: span 1;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+  }
+}

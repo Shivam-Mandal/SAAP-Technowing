@@ -1,0 +1,43 @@
+.exact-excellence__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+}
+
+.exact-excellence__item {
+  display: flex;
+  gap: 16px;
+  background-color: var(--bg-white);
+  padding: 24px;
+  border-radius: 12px;
+  box-shadow: var(--shadow-sm);
+}
+
+.exact-excellence__icon {
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background-color: var(--primary-blue-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.exact-excellence__title {
+  font-size: 16px;
+  margin-bottom: 6px;
+  color: var(--text-dark);
+}
+
+.exact-excellence__desc {
+  font-size: 14px;
+  color: var(--text-gray);
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .exact-excellence__grid {
+    grid-template-columns: 1fr;
+  }
+}

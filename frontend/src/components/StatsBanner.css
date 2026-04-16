@@ -1,0 +1,43 @@
+.exact-statsbanner {
+  padding: 80px 0;
+  background: linear-gradient(135deg, var(--bg-dark), #1e293b);
+  color: white;
+  text-align: center;
+}
+
+.exact-statsbanner__title {
+  color: white;
+  margin-bottom: 60px;
+  font-size: 32px;
+}
+
+.exact-statsbanner__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+}
+
+.exact-statsbanner__val {
+  font-size: 40px;
+  font-weight: 800;
+  color: var(--primary-cyan);
+  margin-bottom: 8px;
+}
+
+.exact-statsbanner__label {
+  font-size: 16px;
+  color: rgba(255,255,255,0.7);
+}
+
+@media (max-width: 900px) {
+  .exact-statsbanner__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 48px;
+  }
+}
+
+@media (max-width: 480px) {
+  .exact-statsbanner__grid {
+    grid-template-columns: 1fr;
+  }
+}

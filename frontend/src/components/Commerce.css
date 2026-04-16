@@ -1,0 +1,45 @@
+.exact-commerce {
+  padding: var(--section-pad);
+  background-color: var(--bg-dark);
+}
+
+.exact-commerce__wrapper {
+  display: flex;
+  background-color: #000;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.exact-commerce__content {
+  flex: 1;
+  padding: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.exact-commerce__title {
+  color: white;
+  font-size: 32px;
+  margin-bottom: 16px;
+}
+
+.exact-commerce__desc {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.exact-commerce__image {
+  flex: 1;
+  background-image: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1200&auto=format&fit=crop');
+  background-size: cover;
+  background-position: center;
+  min-height: 300px;
+}
+
+@media (max-width: 900px) {
+  .exact-commerce__wrapper {
+    flex-direction: column;
+  }
+}
