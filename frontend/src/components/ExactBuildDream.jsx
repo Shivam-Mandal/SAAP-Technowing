@@ -1,15 +1,17 @@
+import useScrollAnimation from '../hooks/useScrollAnimation';
 import './BuildDream.css';
 
 export default function ExactBuildDream() {
+  useScrollAnimation();
   return (
     <section className="exact-build section" id="contact">
       <div className="container exact-build__container">
 
-        <div className="exact-build__image">
+        <div className="exact-build__image scroll-animate" data-animate="fade-right">
           {/* Mock image placeholder representing team working */}
         </div>
 
-        <div className="exact-build__content">
+        <div className="exact-build__content scroll-animate" data-animate="fade-left">
           <h2 className="exact-build__title">Build Your Dream Website</h2>
           <p className="exact-build__desc">Join forces with our engineering team to construct robust digital experiences from the ground up.</p>
 

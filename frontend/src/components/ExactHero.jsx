@@ -1,8 +1,30 @@
+import { Canvas, useFrame } from '@react-three/fiber';
+import { Stars } from '@react-three/drei';
+import { useRef } from 'react';
+import AnimatedCounter from './AnimatedCounter';
 import './Hero.css';
+
+function RotatingStars() {
+  const ref = useRef();
+  useFrame((state, delta) => {
+    ref.current.rotation.x -= delta / 15;
+    ref.current.rotation.y -= delta / 20;
+  });
+  return (
+    <group ref={ref}>
+      <Stars radius={50} depth={50} count={3000} factor={4} saturation={0} fade speed={2} />
+    </group>
+  );
+}
 
 export default function Hero() {
   return (
     <section className="exact-hero" id="home">
+      <div style={{ position: 'absolute', inset: 0, zIndex: 1, pointerEvents: 'none' }}>
+        <Canvas camera={{ position: [0, 0, 1] }}>
+          <RotatingStars />
+        </Canvas>
+      </div>
       <div className="exact-hero__glow"></div>
 
       <div className="container exact-hero__container">
@@ -30,17 +52,17 @@ export default function Hero() {
 
           <div className="exact-hero__stats">
             <div className="exact-hero__stat">
-              <span className="exact-hero__stat-val">10k+</span>
+              <span className="exact-hero__stat-val"><AnimatedCounter end="10" suffix="k+" duration={2000} /></span>
               <span className="exact-hero__stat-label">Active Users</span>
             </div>
             <div className="exact-hero__stat-div"></div>
             <div className="exact-hero__stat">
-              <span className="exact-hero__stat-val">50+</span>
+              <span className="exact-hero__stat-val"><AnimatedCounter end="50" suffix="+" duration={2000} /></span>
               <span className="exact-hero__stat-label">Integrations</span>
             </div>
             <div className="exact-hero__stat-div"></div>
             <div className="exact-hero__stat">
-              <span className="exact-hero__stat-val">99.9%</span>
+              <span className="exact-hero__stat-val"><AnimatedCounter end="99.9" suffix="%" duration={2000} /></span>
               <span className="exact-hero__stat-label">Uptime SLA</span>
             </div>
           </div>
