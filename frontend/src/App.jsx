@@ -3,7 +3,7 @@ import ExactHero from './components/ExactHero';
 import ExactVideoIntro from './components/ExactVideoIntro';
 import ExactStatsSplit from './components/ExactStatsSplit';
 import ExactCommerce from './components/ExactCommerce';
-import ExactValues from './components/ExactValues';
+import ExactFeatureHighlights from './components/ExactFeatureHighlights';
 import ExactServices from './components/ExactServices';
 import ExactExcellence from './components/ExactExcellence';
 import ExactPartners from './components/ExactPartners';
@@ -26,7 +26,7 @@ function App() {
         <ExactVideoIntro />
         <ExactStatsSplit />
         <ExactCommerce />
-        <ExactValues />
+        <ExactFeatureHighlights />
         <ExactServices />
         <ExactExcellence />
         <ExactPartners />
