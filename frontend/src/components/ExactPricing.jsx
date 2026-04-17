@@ -1,11 +1,13 @@
+import useScrollAnimation from '../hooks/useScrollAnimation';
 import './Pricing.css';
 
 export default function ExactPricing() {
+  useScrollAnimation();
   const plans = [
-    { title: "Starter", price: "$29", desc: "Perfect for new marketplaces starting mapping out their future.", features: ["Up to 100 sellers", "Basic Analytics", "Standard Support", "Community Access", "Limited API calls"] },
-    { title: "Basic", price: "$49", desc: "For growing businesses looking to expand their reach across platforms.", features: ["Up to 500 sellers", "Advanced Analytics", "Priority Support", "Email Campaigns", "Standard API Access"] },
-    { title: "Pro", price: "$99", desc: "For established marketplaces generating consistent traffic.", features: ["Unlimited sellers", "Predictive Analytics", "24/7 Phone Support", "Custom integrations", "Unlimited API Access"], featured: true },
-    { title: "Enterprise", price: "$299", desc: "For global enterprises needing highest level of scale.", features: ["Multi-region deployment", "Custom Data Models", "Dedicated Account Manager", "White-glove SLA", "Custom security"] }
+    { title: "Starter", price: "29", desc: "Perfect for new marketplaces starting mapping out their future.", features: ["Up to 100 sellers", "Basic Analytics", "Standard Support", "Community Access", "Limited API calls"] },
+    { title: "Basic", price: "49", desc: "For growing businesses looking to expand their reach across platforms.", features: ["Up to 500 sellers", "Advanced Analytics", "Priority Support", "Email Campaigns", "Standard API Access"] },
+    { title: "Pro", price: "99", desc: "For established marketplaces generating consistent traffic.", features: ["Unlimited sellers", "Predictive Analytics", "24/7 Phone Support", "Custom integrations", "Unlimited API Access"], featured: true },
+    { title: "Enterprise", price: "299", desc: "For global enterprises needing highest level of scale.", features: ["Multi-region deployment", "Custom Data Models", "Dedicated Account Manager", "White-glove SLA", "Custom security"] }
   ];
 
   return (
@@ -16,10 +18,10 @@ export default function ExactPricing() {
 
         <div className="exact-pricing__grid">
           {plans.map((plan, i) => (
-            <div key={i} className={`exact-pricing__card ${plan.featured ? 'exact-pricing__card--featured' : ''}`}>
+            <div key={i} className={`exact-pricing__card ${plan.featured ? 'exact-pricing__card--featured' : ''} scroll-animate`} data-animate="fade-up" style={{ transitionDelay: `${i * 150}ms` }}>
               <h3 className="exact-pricing__title">{plan.title}</h3>
               <div className="exact-pricing__price">
-                <span className="exact-pricing__currency">$</span>{plan.price}<span className="exact-pricing__period">/mo</span>
+                <span className="exact-pricing__currency">₹</span>{plan.price}<span className="exact-pricing__period">/mo</span>
               </div>
               <p className="exact-pricing__desc">{plan.desc}</p>
 

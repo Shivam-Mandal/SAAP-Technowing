@@ -10,7 +10,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 80px;
+  height: 100px;
 }
 
 .exact-nav__logo {
@@ -48,7 +48,8 @@
   transition: color 0.2s;
 }
 
-.exact-nav__link:hover, .exact-nav__link.active {
+.exact-nav__link:hover,
+.exact-nav__link.active {
   color: var(--primary-blue);
 }
 
@@ -67,4 +68,25 @@
 
 .exact-nav__icon-btn:hover {
   color: var(--primary-blue);
+}
+
+.exact-nav__whatsapp-btn {
+  background-color: #25D366;
+  color: white;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border: none;
+  font-weight: 600;
+  border-radius: 100px;
+  padding: 10px 24px;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.25);
+}
+
+.exact-nav__whatsapp-btn:hover {
+  background-color: #128C7E;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(37, 211, 102, 0.4);
 }
