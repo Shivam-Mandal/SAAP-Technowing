@@ -9,7 +9,7 @@ export default function ExactPricing() {
   ];
 
   return (
-    <section className="exact-pricing section section-bg-light">
+    <section className="exact-pricing section section-bg-light" id="pricing">
       <div className="container">
         <h2 className="section-title section-title-center">Pricing Plans</h2>
         <p className="section-desc section-desc-center">Scale without limits. Choose the plan that perfectly matches your current stage of growth.</p>
@@ -22,7 +22,7 @@ export default function ExactPricing() {
                 <span className="exact-pricing__currency">$</span>{plan.price}<span className="exact-pricing__period">/mo</span>
               </div>
               <p className="exact-pricing__desc">{plan.desc}</p>
-              
+
               <ul className="exact-pricing__features">
                 {plan.features.map((f, j) => (
                   <li key={j} className="exact-pricing__feature">
@@ -31,7 +31,7 @@ export default function ExactPricing() {
                   </li>
                 ))}
               </ul>
-              
+
               <button className={`btn ${plan.featured ? 'btn-white' : 'btn-outline'} exact-pricing__btn`}>Get Started</button>
             </div>
           ))}

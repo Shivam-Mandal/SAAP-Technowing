@@ -2,9 +2,9 @@ import './BuildDream.css';
 
 export default function ExactBuildDream() {
   return (
-    <section className="exact-build section">
+    <section className="exact-build section" id="contact">
       <div className="container exact-build__container">
-        
+
         <div className="exact-build__image">
           {/* Mock image placeholder representing team working */}
         </div>
@@ -24,7 +24,7 @@ export default function ExactBuildDream() {
                 <input type="email" placeholder="john@example.com" required />
               </div>
             </div>
-            
+
             <div className="exact-build__form-row">
               <div className="exact-build__input-group">
                 <label>Phone Number</label>

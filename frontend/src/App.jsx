@@ -13,6 +13,7 @@ import ExactStatsBanner from './components/ExactStatsBanner';
 import ExactPricing from './components/ExactPricing';
 import ExactBlog from './components/ExactBlog';
 import ExactBuildDream from './components/ExactBuildDream';
+import ExactCareer from './components/ExactCareer';
 import ExactFooter from './components/ExactFooter';
 import './App.css';
 
@@ -34,6 +35,7 @@ function App() {
         <ExactStatsBanner />
         <ExactPricing />
         <ExactBlog />
+        <ExactCareer />
         <ExactBuildDream />
       </main>
       <ExactFooter />

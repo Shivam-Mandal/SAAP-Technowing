@@ -23,17 +23,17 @@ export default function ExactBlog() {
   ];
 
   return (
-    <section className="exact-blog section">
+    <section className="exact-blog section" id="blog">
       <div className="container">
-        
+
         <h2 className="section-title section-title-center">Latest News & Insights</h2>
         <p className="section-desc section-desc-center">Stay updated with the latest technological advancements and ecosystem announcements.</p>
 
         <div className="exact-blog__grid">
           {posts.map((post, i) => (
             <div key={i} className="exact-blog__card">
-              <div 
-                className="exact-blog__image" 
+              <div
+                className="exact-blog__image"
                 style={{ backgroundImage: `url(${post.image})` }}
               ></div>
               <div className="exact-blog__content">
@@ -42,7 +42,7 @@ export default function ExactBlog() {
                 <p className="exact-blog__desc">{post.desc}</p>
                 <a href="#" className="exact-blog__link">
                   Read Article
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
                 </a>
               </div>
             </div>
