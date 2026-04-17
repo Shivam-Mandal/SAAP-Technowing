@@ -1,0 +1,234 @@
+/* Career Section */
+.exact-career__header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.exact-career__badge {
+    display: inline-block;
+    padding: 6px 18px;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--primary-blue);
+    background: var(--primary-blue-light);
+    border-radius: 100px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+/* Perks Grid */
+.exact-career__perks {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    margin-bottom: 70px;
+}
+
+.exact-career__perk {
+    text-align: center;
+    padding: 32px 20px;
+    background: var(--bg-white);
+    border-radius: 16px;
+    border: 1px solid var(--border-light);
+    transition: all 0.3s ease;
+}
+
+.exact-career__perk:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+    border-color: rgba(10, 102, 194, 0.2);
+}
+
+.exact-career__perk-icon {
+    width: 52px;
+    height: 52px;
+    border-radius: 14px;
+    background: linear-gradient(135deg, var(--primary-blue-light), #dbeafe);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 16px;
+    color: var(--primary-blue);
+}
+
+.exact-career__perk-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 6px;
+}
+
+.exact-career__perk-desc {
+    font-size: 14px;
+    color: var(--text-gray);
+    margin: 0;
+}
+
+/* Openings Title */
+.exact-career__openings-title {
+    font-size: 28px;
+    font-weight: 800;
+    color: var(--text-dark);
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+/* Job Cards Grid */
+.exact-career__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+    margin-bottom: 60px;
+}
+
+.exact-career__card {
+    position: relative;
+    background: var(--bg-white);
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid var(--border-light);
+    box-shadow: var(--shadow-sm);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    display: flex;
+    flex-direction: column;
+}
+
+.exact-career__card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.1);
+    border-color: var(--accent, var(--primary-blue));
+}
+
+.exact-career__card-accent {
+    height: 4px;
+    background: var(--accent, var(--primary-blue));
+    transition: height 0.3s ease;
+}
+
+.exact-career__card:hover .exact-career__card-accent {
+    height: 6px;
+}
+
+.exact-career__card-body {
+    padding: 28px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.exact-career__card-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+}
+
+.exact-career__dept {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: var(--accent, var(--primary-blue));
+    background: color-mix(in srgb, var(--accent, var(--primary-blue)) 10%, transparent);
+    padding: 4px 12px;
+    border-radius: 100px;
+}
+
+.exact-career__type {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-light);
+    background: var(--bg-off-white);
+    padding: 4px 12px;
+    border-radius: 100px;
+}
+
+.exact-career__job-title {
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--text-dark);
+    margin-bottom: 12px;
+    line-height: 1.3;
+}
+
+.exact-career__job-desc {
+    font-size: 15px;
+    color: var(--text-gray);
+    line-height: 1.6;
+    margin-bottom: 24px;
+    flex: 1;
+}
+
+.exact-career__card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 16px;
+    border-top: 1px solid var(--border-light);
+}
+
+.exact-career__location {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    color: var(--text-light);
+}
+
+.exact-career__apply-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--primary-blue);
+    text-decoration: none;
+    transition: gap 0.2s;
+}
+
+.exact-career__apply-btn:hover {
+    gap: 10px;
+}
+
+/* Bottom CTA */
+.exact-career__cta {
+    text-align: center;
+    background: var(--primary-blue-light);
+    padding: 48px 40px;
+    border-radius: 20px;
+    border: 1px solid #dbeafe;
+}
+
+.exact-career__cta p {
+    font-size: 17px;
+    color: var(--text-gray);
+    margin-bottom: 20px;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .exact-career__grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .exact-career__perks {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 640px) {
+    .exact-career__grid {
+        grid-template-columns: 1fr;
+    }
+
+    .exact-career__perks {
+        grid-template-columns: 1fr;
+    }
+
+    .exact-career__card-footer {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+}

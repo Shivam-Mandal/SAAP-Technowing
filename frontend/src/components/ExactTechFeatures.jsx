@@ -9,11 +9,11 @@ export default function ExactTechFeatures() {
   ];
 
   return (
-    <section className="exact-tech section">
+    <section className="exact-tech section" id="features">
       <div className="container">
-        
+
         <h2 className="section-title section-title-center">Comprehensive Tech Features</h2>
-        
+
         <div className="exact-tech__grid">
           {features.map((ft, i) => (
             <div key={i} className="exact-tech__item">

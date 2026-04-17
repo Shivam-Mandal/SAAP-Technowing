@@ -52,3 +52,22 @@
 .exact-video__play-btn svg {
   margin-left: 4px;
 }
+
+/* Thumbnail hidden when video is playing */
+.exact-video__player-bg--hidden {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+/* Video element fills the player */
+.exact-video__video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 16px;
+  z-index: 2;
+  background: #000;
+}

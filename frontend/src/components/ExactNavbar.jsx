@@ -4,19 +4,20 @@ export default function Navbar() {
   return (
     <nav className="exact-nav">
       <div className="container exact-nav__container">
-        
+
         <div className="exact-nav__logo">
           <div className="exact-nav__logo-icon"></div>
           <span className="exact-nav__logo-blue">SAAP</span> <span className="exact-nav__logo-dark">Technowing</span>
         </div>
 
         <div className="exact-nav__links">
-          <a href="#" className="exact-nav__link active">Home</a>
-          <a href="#" className="exact-nav__link">Features</a>
-          <a href="#" className="exact-nav__link">About</a>
-          <a href="#" className="exact-nav__link">Pages</a>
-          <a href="#" className="exact-nav__link">Blog</a>
-          <a href="#" className="exact-nav__link">Contact</a>
+          <a href="#home" className="exact-nav__link">Home</a>
+          <a href="#features" className="exact-nav__link">Features</a>
+          <a href="#about" className="exact-nav__link">About</a>
+          <a href="#pricing" className="exact-nav__link">Pricing</a>
+          <a href="#blog" className="exact-nav__link">Blog</a>
+          <a href="#careers" className="exact-nav__link">Careers</a>
+          <a href="#contact" className="exact-nav__link">Contact</a>
         </div>
 
         <div className="exact-nav__actions">
