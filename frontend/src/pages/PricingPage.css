@@ -1,0 +1,189 @@
+.pricing-page {
+    min-height: 100vh;
+    background-color: var(--bg-primary, #ffffff);
+    overflow-x: hidden;
+}
+
+.pricing-hero {
+    position: relative;
+    text-align: center;
+    padding: 180px 5% 120px;
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: linear-gradient(135deg, rgba(15, 23, 42, 0.02) 0%, rgba(59, 130, 246, 0.05) 50%, rgba(139, 92, 246, 0.05) 100%);
+}
+
+.pricing-hero__3d-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    opacity: 0.8;
+    pointer-events: none;
+    mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+}
+
+.pricing-hero__content {
+    position: relative;
+    z-index: 10;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.pricing-hero__badge {
+    display: inline-block;
+    padding: 8px 20px;
+    font-size: 14px;
+    font-weight: 800;
+    color: #ffffff;
+    background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+    border-radius: 100px;
+    margin-bottom: 24px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
+    animation: floatingBadge 3s ease-in-out infinite;
+}
+
+@keyframes floatingBadge {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-6px);
+        box-shadow: 0 8px 20px rgba(59, 130, 246, 0.5);
+    }
+}
+
+.pricing-hero__title {
+    font-size: clamp(3rem, 5vw, 5rem);
+    font-weight: 800;
+    color: var(--text-dark, #1e293b);
+    margin-bottom: 24px;
+    line-height: 1.1;
+}
+
+.pricing-hero__title span {
+    background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 50%, #0ea5e9 100%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: gradientShine 4s linear infinite;
+}
+
+@keyframes gradientShine {
+    0% {
+        background-position: 0% center;
+    }
+
+    100% {
+        background-position: 200% center;
+    }
+}
+
+.pricing-hero__subtitle {
+    font-size: 1.25rem;
+    color: var(--text-gray, #64748b);
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+.pricing-faq {
+    padding: 100px 5% 120px;
+    background-color: var(--bg-primary, #ffffff);
+    position: relative;
+}
+
+.pricing-faq::before {
+    content: '';
+    position: absolute;
+    top: -100px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(59, 130, 246, 0.05) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.pricing-faq .container {
+    position: relative;
+    z-index: 1;
+}
+
+.pricing-faq__list {
+    max-width: 900px;
+    margin: 60px auto 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 28px;
+}
+
+.pricing-faq__item {
+    position: relative;
+    padding: 36px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(226, 232, 240, 0.8);
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    overflow: hidden;
+    z-index: 2;
+}
+
+.pricing-faq__item-bg {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(120deg, rgba(255, 255, 255, 0) 30%, rgba(255, 255, 255, 0.8) 50%, rgba(255, 255, 255, 0) 70%);
+    background-size: 200% 100%;
+    background-position: 100% 0;
+    opacity: 0;
+    transition: opacity 0.5s, background-position 0.8s ease-in-out;
+    z-index: -1;
+    border-radius: inherit;
+}
+
+.pricing-faq__item:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 25px 50px -12px rgba(59, 130, 246, 0.15);
+    border-color: rgba(59, 130, 246, 0.3);
+}
+
+.pricing-faq__item:hover .pricing-faq__item-bg {
+    opacity: 1;
+    background-position: -100% 0;
+}
+
+.pricing-faq__item h3 {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: var(--text-dark, #1e293b);
+    margin-bottom: 12px;
+    transition: color 0.3s ease;
+}
+
+.pricing-faq__item:hover h3 {
+    color: #3b82f6;
+}
+
+.pricing-faq__item p {
+    color: var(--text-gray, #64748b);
+    line-height: 1.7;
+    font-size: 1rem;
+    margin: 0;
+}
+
+@media (min-width: 768px) {
+    .pricing-faq__list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}

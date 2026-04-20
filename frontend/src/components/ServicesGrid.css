@@ -54,7 +54,7 @@
 
 .exact-services__icon-floating {
   position: absolute;
-  bottom: -24px;
+  top: -28px;
   left: 32px;
   width: 56px;
   height: 56px;
@@ -75,6 +75,7 @@
 }
 
 .exact-services__content {
+  position: relative;
   padding: 48px 32px 32px;
   flex: 1;
   display: flex;

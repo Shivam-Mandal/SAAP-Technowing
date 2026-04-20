@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import './Navbar.css';
 
 export default function Navbar() {
@@ -14,13 +15,13 @@ export default function Navbar() {
         </div>
 
         <div className="exact-nav__links">
-          <a href="#home" className="exact-nav__link">Home</a>
-          <a href="#features" className="exact-nav__link">Features</a>
+          <Link to="/" className="exact-nav__link">Home</Link>
+          <a href="/#features" className="exact-nav__link">Features</a>
           <a href="#about" className="exact-nav__link">About</a>
-          <a href="#pricing" className="exact-nav__link">Pricing</a>
-          <a href="#blog" className="exact-nav__link">Blog</a>
-          <a href="#careers" className="exact-nav__link">Careers</a>
-          <a href="#contact" className="exact-nav__link">Contact</a>
+          <Link to="/pricing" className="exact-nav__link">Pricing</Link>
+          <a href="/#blog" className="exact-nav__link">Blog</a>
+          <Link to="/careers" className="exact-nav__link">Careers</Link>
+          <a href="/#contact" className="exact-nav__link">Contact</a>
         </div>
 
         <div className="exact-nav__actions">
