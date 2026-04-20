@@ -63,15 +63,15 @@ export default function ExactServices() {
                   style={{ backgroundImage: `url(${srv.image})` }}
                 ></div>
                 <div className="exact-services__image-overlay"></div>
+              </div>
 
+              <div className="exact-services__content">
                 <div className="exact-services__icon-floating">
                   <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                     {srv.icon}
                   </svg>
                 </div>
-              </div>
 
-              <div className="exact-services__content">
                 <h3 className="exact-services__title">{srv.title}</h3>
                 <p className="exact-services__desc">{srv.desc}</p>
 

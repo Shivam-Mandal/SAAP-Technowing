@@ -2,29 +2,63 @@
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 24px;
+  perspective: 1200px;
 }
 
 .exact-pricing__card {
-  background-color: var(--bg-white);
-  border: 1px solid var(--border-light);
-  border-radius: 16px;
+  position: relative;
+  background-color: var(--bg-white, #ffffff);
+  border: 1px solid var(--border-light, #e2e8f0);
+  border-radius: 20px;
   padding: 40px 30px;
-  transition: transform 0.2s, box-shadow 0.2s;
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
   display: flex;
   flex-direction: column;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.exact-pricing__card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: inherit;
+  padding: 2px;
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.5), rgba(139, 92, 246, 0.5));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  z-index: -1;
 }
 
 .exact-pricing__card:hover {
-  transform: translateY(-8px);
-  box-shadow: var(--shadow-lg);
+  transform: translateY(-12px) scale(1.02);
+  box-shadow: 0 30px 60px -15px rgba(59, 130, 246, 0.15);
+  border-color: transparent;
+}
+
+.exact-pricing__card:hover::before {
+  opacity: 1;
 }
 
 .exact-pricing__card--featured {
-  background-color: var(--primary-blue);
+  background: linear-gradient(160deg, var(--primary-blue), #2563eb);
   color: white;
-  border-color: var(--primary-blue);
-  box-shadow: var(--shadow-lg);
-  transform: translateY(-8px);
+  border-color: transparent;
+  box-shadow: 0 20px 40px -10px rgba(59, 130, 246, 0.4);
+  transform: scale(1.05);
+  z-index: 2;
+}
+
+.exact-pricing__card--featured:hover {
+  transform: scale(1.08) translateY(-10px);
+  box-shadow: 0 40px 80px -10px rgba(59, 130, 246, 0.6);
 }
 
 .exact-pricing__title {
@@ -56,7 +90,7 @@
 
 .exact-pricing__card--featured .exact-pricing__period,
 .exact-pricing__card--featured .exact-pricing__desc {
-  color: rgba(255,255,255,0.8);
+  color: rgba(255, 255, 255, 0.8);
 }
 
 .exact-pricing__desc {
