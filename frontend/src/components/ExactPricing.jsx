@@ -19,6 +19,7 @@ export default function ExactPricing() {
         <div className="exact-pricing__grid">
           {plans.map((plan, i) => (
             <div key={i} className={`exact-pricing__card ${plan.featured ? 'exact-pricing__card--featured' : ''} scroll-animate`} data-animate="fade-up" style={{ transitionDelay: `${i * 150}ms` }}>
+              {plan.featured && <div className="exact-pricing__badge">Most Popular</div>}
               <h3 className="exact-pricing__title">{plan.title}</h3>
               <div className="exact-pricing__price">
                 <span className="exact-pricing__currency">₹</span>{plan.price}<span className="exact-pricing__period">/mo</span>

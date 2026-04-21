@@ -1,21 +1,26 @@
 .exact-pricing__grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 24px;
+  gap: 32px;
   perspective: 1200px;
+  padding: 40px 0;
 }
 
 .exact-pricing__card {
   position: relative;
-  background-color: var(--bg-white, #ffffff);
-  border: 1px solid var(--border-light, #e2e8f0);
-  border-radius: 20px;
-  padding: 40px 30px;
+  background: rgba(255, 255, 255, 0.7);
+  /* Premium glass */
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  border-radius: 24px;
+  padding: 48px 32px;
   transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
   display: flex;
   flex-direction: column;
   z-index: 1;
   overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.04), inset 0 0 0 1px rgba(255, 255, 255, 0.5);
 }
 
 .exact-pricing__card::before {
@@ -26,20 +31,35 @@
   right: 0;
   bottom: 0;
   border-radius: inherit;
-  padding: 2px;
-  background: linear-gradient(135deg, rgba(59, 130, 246, 0.5), rgba(139, 92, 246, 0.5));
+  padding: 3px;
+  background: linear-gradient(135deg, #3b82f6, #8b5cf6, #0ea5e9);
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
   mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   mask-composite: exclude;
   opacity: 0;
-  transition: opacity 0.5s ease;
+  transition: opacity 0.5s ease-in-out;
   z-index: -1;
 }
 
+.exact-pricing__card::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.08) 0%, transparent 60%);
+  opacity: 0;
+  transition: opacity 0.5s ease, transform 0.5s ease-out;
+  pointer-events: none;
+  z-index: 0;
+  transform: scale(0.8);
+}
+
 .exact-pricing__card:hover {
-  transform: translateY(-12px) scale(1.02);
-  box-shadow: 0 30px 60px -15px rgba(59, 130, 246, 0.15);
+  transform: translateY(-16px) scale(1.02);
+  box-shadow: 0 40px 80px -20px rgba(59, 130, 246, 0.25);
   border-color: transparent;
 }
 
@@ -47,38 +67,82 @@
   opacity: 1;
 }
 
-.exact-pricing__card--featured {
-  background: linear-gradient(160deg, var(--primary-blue), #2563eb);
-  color: white;
-  border-color: transparent;
-  box-shadow: 0 20px 40px -10px rgba(59, 130, 246, 0.4);
-  transform: scale(1.05);
+.exact-pricing__card:hover::after {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.exact-pricing__card>* {
   z-index: 2;
+  position: relative;
+}
+
+/* Featured Card Styling */
+.exact-pricing__card--featured.exact-pricing__card--featured {
+  background: linear-gradient(160deg, #1e3a8a, #3b82f6);
+  color: white;
+  border-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 30px 60px -15px rgba(59, 130, 246, 0.5), inset 0 0 0 1px rgba(255, 255, 255, 0.2);
+  transform: scale(1.06);
+  z-index: 3;
+}
+
+.exact-pricing__card--featured::before {
+  background: linear-gradient(135deg, #60a5fa, #c084fc, #38bdf8);
+  opacity: 0.6;
 }
 
 .exact-pricing__card--featured:hover {
-  transform: scale(1.08) translateY(-10px);
-  box-shadow: 0 40px 80px -10px rgba(59, 130, 246, 0.6);
+  transform: scale(1.08) translateY(-16px);
+  box-shadow: 0 50px 100px -20px rgba(59, 130, 246, 0.6);
+}
+
+/* Add a glowing orb inside featured card */
+.exact-pricing__card--featured::after {
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.15) 0%, transparent 60%);
+  opacity: 1;
+  transform: scale(1);
+  top: -20%;
+  left: -20%;
+}
+
+.exact-pricing__card--featured:hover::after {
+  transform: scale(1.2);
 }
 
 .exact-pricing__title {
-  font-size: 20px;
+  font-size: 24px;
+  font-weight: 800;
   margin-bottom: 24px;
-  color: inherit;
+  color: var(--text-dark);
+  letter-spacing: -0.5px;
+}
+
+.exact-pricing__card--featured .exact-pricing__title {
+  color: white;
 }
 
 .exact-pricing__price {
-  font-size: 48px;
-  font-weight: 800;
-  margin-bottom: 16px;
+  font-size: 56px;
+  font-weight: 900;
+  margin-bottom: 20px;
   display: flex;
-  align-items: baseline;
+  align-items: flex-start;
   line-height: 1;
+  letter-spacing: -2px;
+  color: var(--text-dark);
+}
+
+.exact-pricing__card--featured .exact-pricing__price {
+  color: white;
 }
 
 .exact-pricing__currency {
-  font-size: 24px;
+  font-size: 28px;
+  font-weight: 600;
   margin-right: 4px;
+  margin-top: 8px;
+  opacity: 0.8;
 }
 
 .exact-pricing__period {
@@ -86,45 +150,160 @@
   font-weight: 500;
   color: var(--text-gray);
   margin-left: 4px;
+  margin-top: auto;
+  margin-bottom: 8px;
+  letter-spacing: 0;
 }
 
 .exact-pricing__card--featured .exact-pricing__period,
 .exact-pricing__card--featured .exact-pricing__desc {
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(255, 255, 255, 0.85);
 }
 
 .exact-pricing__desc {
   font-size: 15px;
   color: var(--text-gray);
   margin-bottom: 32px;
-  line-height: 1.6;
+  line-height: 1.7;
 }
 
 .exact-pricing__features {
   list-style: none;
   margin-bottom: 40px;
   flex: 1;
+  padding-top: 32px;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.exact-pricing__card--featured .exact-pricing__features {
+  border-top-color: rgba(255, 255, 255, 0.15);
 }
 
 .exact-pricing__feature {
   display: flex;
   align-items: center;
-  gap: 12px;
-  margin-bottom: 16px;
+  gap: 14px;
+  margin-bottom: 20px;
   font-size: 15px;
+  font-weight: 600;
+  color: var(--text-dark);
 }
 
-.exact-pricing__card:not(.exact-pricing__card--featured) .exact-pricing__feature svg {
-  color: var(--primary-blue);
+.exact-pricing__card--featured .exact-pricing__feature {
+  color: white;
+}
+
+.exact-pricing__feature svg {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  padding: 5px;
+  border-radius: 50%;
+  background: rgba(59, 130, 246, 0.1);
+  color: #3b82f6;
+  transition: transform 0.3s ease, background 0.3s ease, color 0.3s ease;
+}
+
+.exact-pricing__card--featured .exact-pricing__feature svg {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+}
+
+.exact-pricing__card:hover .exact-pricing__feature svg {
+  transform: scale(1.15) rotate(5deg);
+  background: #3b82f6;
+  color: white;
+}
+
+.exact-pricing__card--featured:hover .exact-pricing__feature svg {
+  background: white;
+  color: #3b82f6;
 }
 
 .exact-pricing__btn {
   width: 100%;
+  padding: 16px;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.exact-pricing__card:not(.exact-pricing__card--featured) .exact-pricing__btn {
+  background: white;
+  color: var(--text-dark);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+}
+
+.exact-pricing__card:not(.exact-pricing__card--featured):hover .exact-pricing__btn {
+  background: var(--text-dark);
+  color: white;
+  border-color: var(--text-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.exact-pricing__card--featured .exact-pricing__btn {
+  background: white;
+  color: #1e3a8a;
+  border: none;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.exact-pricing__card--featured:hover .exact-pricing__btn {
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25);
+  transform: translateY(-3px);
+  background: #f8fafc;
+}
+
+/* Most Popular Badge for Featured Plan */
+.exact-pricing__badge {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  background: linear-gradient(90deg, #f59e0b, #f97316);
+  color: white;
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 10px 20px rgba(245, 158, 11, 0.4);
+  z-index: 10;
+  animation: pulseBadge 2s infinite;
+}
+
+@keyframes pulseBadge {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.05);
+  }
+
+  100% {
+    transform: scale(1);
+  }
 }
 
 @media (max-width: 1200px) {
   .exact-pricing__grid {
     grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+  }
+
+  .exact-pricing__card--featured.exact-pricing__card--featured {
+    transform: scale(1);
+  }
+
+  .exact-pricing__card--featured:hover {
+    transform: translateY(-16px) scale(1.02);
   }
 }
 
