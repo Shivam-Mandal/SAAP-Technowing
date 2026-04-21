@@ -13,6 +13,7 @@ export default function ExactMacbook() {
     const assemblyRef = useRef(null);
     const lidRef = useRef(null);
     const phoneRef = useRef(null);
+    const laptopDashboardRef = useRef(null);
 
     useGSAP(() => {
         let mm = gsap.matchMedia();
@@ -23,6 +24,7 @@ export default function ExactMacbook() {
             gsap.set(lidRef.current, { rotateX: -60, transformStyle: "preserve-3d" });
             gsap.set(titleRef.current, { opacity: 1, y: 0 });
             gsap.set(phoneRef.current, { y: 200, opacity: 0 }); // Phone starts hidden and lower
+            gsap.set(laptopDashboardRef.current, { opacity: 0 }); // Hide dashboard initially
 
             // 2. Setup Timeline with ScrollTrigger
             const tl = gsap.timeline({
@@ -54,6 +56,11 @@ export default function ExactMacbook() {
                     duration: 4,
                     ease: "power2.inOut"
                 }, 0)
+                .to(laptopDashboardRef.current, {
+                    opacity: 1,
+                    duration: 1.5,
+                    ease: "power1.inOut"
+                }, 2) // Start fading in when the lid is half down (halfway open, duration is 4 so half is 2)
                 .to(phoneRef.current, {
                     y: 0,
                     opacity: 1,
@@ -68,6 +75,7 @@ export default function ExactMacbook() {
             gsap.set(lidRef.current, { rotateX: 0 });
             gsap.set(titleRef.current, { opacity: 0, y: 30 });
             gsap.set(phoneRef.current, { y: 50, opacity: 0 });
+            gsap.set(laptopDashboardRef.current, { opacity: 1 }); // Already open in mobile
 
             const tl = gsap.timeline({
                 scrollTrigger: {
@@ -108,10 +116,23 @@ export default function ExactMacbook() {
                                 {/* Actual Display Area for Image */}
                                 <div className="mac-display-area">
                                     <div className="mac-real-notch"></div>
+                                    <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', zIndex: 1, boxSizing: 'border-box' }}>
+                                        <img
+                                            src="/Buyyboxlogo.png"
+                                            alt="Buybox Logo"
+                                            draggable={false}
+                                            style={{ width: '35%', height: 'auto', objectFit: 'contain' }}
+                                        />
+                                        <span style={{ color: '#fff', fontSize: 'clamp(1.2rem, 2vw, 2.5rem)', fontWeight: '700', marginTop: '1.5rem', fontFamily: 'sans-serif' }}>
+                                            buyybox.com
+                                        </span>
+                                    </div>
                                     <img
+                                        ref={laptopDashboardRef}
                                         src="/dashboard-preview.png"
                                         alt="SAAP Technowing Dashboard"
                                         draggable={false}
+                                        style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', objectFit: 'cover', opacity: 0, zIndex: 2 }}
                                     />
                                     <div className="mac-screen-reflection"></div>
                                 </div>
@@ -179,11 +200,17 @@ export default function ExactMacbook() {
                             <div className="phone-screen">
                                 <div className="phone-notch"></div>
                                 <div className="phone-display-area">
-                                    <img
-                                        src="/dashboard-preview.png"
-                                        alt="Mobile Dashboard Preview"
-                                        draggable={false}
-                                    />
+                                    <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', zIndex: 1 }}>
+                                        <img
+                                            src="/Buyyboxlogo.png"
+                                            alt="Buybox Logo"
+                                            draggable={false}
+                                            style={{ width: '60%', height: 'auto', objectFit: 'contain' }}
+                                        />
+                                        <span style={{ color: '#fff', fontSize: '16px', fontWeight: '700', marginTop: '1rem', fontFamily: 'sans-serif' }}>
+                                            buyybox.com
+                                        </span>
+                                    </div>
                                     <div className="mac-screen-reflection"></div>
                                 </div>
                             </div>
