@@ -19,18 +19,18 @@ export default function ExactBuildDream() {
             <div className="exact-build__form-row">
               <div className="exact-build__input-group">
                 <label>Full Name</label>
-                <input type="text" placeholder="John Doe" required />
+                <input type="text" placeholder="Rahul Kumar" required />
               </div>
               <div className="exact-build__input-group">
                 <label>Email Address</label>
-                <input type="email" placeholder="john@example.com" required />
+                <input type="email" placeholder="rahul@example.com" required />
               </div>
             </div>
 
             <div className="exact-build__form-row">
               <div className="exact-build__input-group">
                 <label>Phone Number</label>
-                <input type="tel" placeholder="+1 (555) 000-0000" />
+                <input type="tel" placeholder="+91 98765 43210" />
               </div>
               <div className="exact-build__input-group">
                 <label>Company</label>
